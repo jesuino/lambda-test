@@ -24,7 +24,7 @@ public class ClassicalSum{
 		return totalPrice;
 	}  
 	public static double getTotalPriceLambda() {
-		return lineItems.stream().filter(i -> i.getPrice() != null).mapToDouble(LineItem::getPrice).sum();
+		return lineItems.stream().mapToDouble(LineItem::getPrice).filter(Objects::nonNull).sum();
 	}
 	public static class LineItem{
 		Float price;
